@@ -6,12 +6,16 @@
 //
 
 import UIKit
-
+import SnapKit
 class ViewController: UIViewController {
-
+    private var label = UILabel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    private func configurateUI(){
+        
     }
 
 
