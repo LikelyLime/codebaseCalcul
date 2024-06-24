@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F97E2792C28FD4700A53841 /* OperationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F97E2782C28FD4700A53841 /* OperationDTO.swift */; };
+		4F97E27B2C2906C900A53841 /* inputDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F97E27A2C2906C900A53841 /* inputDTO.swift */; };
+		4F97E27E2C2908AE00A53841 /* calculService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F97E27D2C2908AE00A53841 /* calculService.swift */; };
 		4FCA92762C252CA40082492D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCA92752C252CA40082492D /* AppDelegate.swift */; };
 		4FCA92782C252CA40082492D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCA92772C252CA40082492D /* SceneDelegate.swift */; };
 		4FCA927A2C252CA40082492D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCA92792C252CA40082492D /* ViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F97E2782C28FD4700A53841 /* OperationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationDTO.swift; sourceTree = "<group>"; };
+		4F97E27A2C2906C900A53841 /* inputDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inputDTO.swift; sourceTree = "<group>"; };
+		4F97E27D2C2908AE00A53841 /* calculService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculService.swift; sourceTree = "<group>"; };
 		4FCA92722C252CA40082492D /* codebaseCalcul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = codebaseCalcul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FCA92752C252CA40082492D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FCA92772C252CA40082492D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +43,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F97E2772C28FCD100A53841 /* dto */ = {
+			isa = PBXGroup;
+			children = (
+				4F97E2782C28FD4700A53841 /* OperationDTO.swift */,
+				4F97E27A2C2906C900A53841 /* inputDTO.swift */,
+			);
+			path = dto;
+			sourceTree = "<group>";
+		};
+		4F97E27C2C29089600A53841 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				4F97E27D2C2908AE00A53841 /* calculService.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
 		4FCA92692C252CA40082492D = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +79,8 @@
 		4FCA92742C252CA40082492D /* codebaseCalcul */ = {
 			isa = PBXGroup;
 			children = (
+				4F97E27C2C29089600A53841 /* service */,
+				4F97E2772C28FCD100A53841 /* dto */,
 				4FCA92752C252CA40082492D /* AppDelegate.swift */,
 				4FCA92772C252CA40082492D /* SceneDelegate.swift */,
 				4FCA92792C252CA40082492D /* ViewController.swift */,
@@ -145,6 +170,9 @@
 				4FCA927A2C252CA40082492D /* ViewController.swift in Sources */,
 				4FCA92762C252CA40082492D /* AppDelegate.swift in Sources */,
 				4FCA92782C252CA40082492D /* SceneDelegate.swift in Sources */,
+				4F97E27E2C2908AE00A53841 /* calculService.swift in Sources */,
+				4F97E2792C28FD4700A53841 /* OperationDTO.swift in Sources */,
+				4F97E27B2C2906C900A53841 /* inputDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
