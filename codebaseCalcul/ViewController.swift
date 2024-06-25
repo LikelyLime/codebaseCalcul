@@ -25,14 +25,13 @@ class ViewController: UIViewController {
     private var button0 = UIButton()
     private var equalButton = UIButton()
     private var dividButton = UIButton()
-    
     private var verticalView = UIStackView()
     private var stackView1 = UIStackView()
     private var stackView2 = UIStackView()
     private var stackView3 = UIStackView()
     private var stackView4 = UIStackView()
-    var oper = OperationDTO.self
     var input = inputData()
+    let calSerivce = calculService()
     
     
     
@@ -80,7 +79,7 @@ class ViewController: UIViewController {
     }
     
     /**
-     버튼를 탭 했을때 label을 변경하는 함수
+     숫자 버튼를 탭 했을때 label을 변경하는 함수
      */
     @objc
     private func tapNumButton(_ sender: UIButton){
@@ -88,15 +87,19 @@ class ViewController: UIViewController {
         let tapNum = sender.title(for: .normal) ?? "No title"
         if label.text! == "0"{
             if tapNum == "0"{
-                input.displayNum = "0"
+                input.formula = "0"
             }else{
-                input.displayNum = tapNum
+                input.formula = tapNum
             }
         }else{
-            input.displayNum += tapNum
+            if input.formula == "0"{
+                input.formula = tapNum
+            }else{
+                input.formula += tapNum
+            }
         }
         
-        label.text = input.displayNum
+        label.text = input.formula
     }
 
     
@@ -106,6 +109,58 @@ class ViewController: UIViewController {
     private func isInt(_ string: String) -> Bool {
         return Int(string) != nil
     }
+    /**
+     AC버튼 클릭시 이벤트 함수
+     */
+    @objc
+    private func tapAcButton(){
+        input.formula = ""
+        label.text = "0"
+        input.result = ""
+    }
+    /**
+     수식 버튼 클릭시 앞에 수식이 있는지 확인하는 메서그
+     */
+    private func chckOperButton(_ formula: String) -> Bool{
+        var formula = formula
+        var ary = formula.map{ String($0) }
+        return isInt(ary[ary.count - 1])
+    }
+    
+    /**
+     연산 버튼 클릭시 이벤트 함수
+     */
+    @objc
+    private func tapOperButton(_ sender: UIButton){
+        guard let formula = self.label.text else { return }
+        
+        if chckOperButton(formula) {
+            guard let title = sender.titleLabel?.text else { return }
+            switch title{
+            case "+": input.formula = formula + "+"
+                break
+            case "-": input.formula = formula + "-"
+                break
+            case "*": input.formula = formula + "*"
+                break
+            case "/": input.formula = formula + "/"
+                break
+            default: break
+            }
+            
+            self.label.text = input.formula
+        }
+    }
+    
+    /**
+     equal버튼 클릭시 이벤트 함수
+     */
+    @objc
+    private func tapEqualButton(){
+        input = calSerivce.operation(input)
+        self.label.text = input.result
+    }
+    
     /**
      UI설정을 위한 메서드
      */
@@ -118,18 +173,24 @@ class ViewController: UIViewController {
         button8 = makeButton("8")
         button9 = makeButton("9")
         plusButton = makeButton("+")
+        plusButton.addTarget(self, action: #selector(tapOperButton), for: .touchDown)
         button4 = makeButton("4")
         button5 = makeButton("5")
         button6 = makeButton("6")
         minusButton = makeButton("-")
+        minusButton.addTarget(self, action: #selector(tapOperButton), for: .touchDown)
         button1 = makeButton("1")
         button2 = makeButton("2")
         button3 = makeButton("3")
         multiplButton = makeButton("*")
+        multiplButton.addTarget(self, action: #selector(tapOperButton), for: .touchDown)
         AcButton = makeButton("AC")
+        AcButton.addTarget(self, action: #selector(tapAcButton), for: .touchDown)
         button0 = makeButton("0")
         equalButton = makeButton("=")
+        equalButton.addTarget(self, action: #selector(tapEqualButton), for: .touchDown)
         dividButton = makeButton("/")
+        dividButton.addTarget(self, action: #selector(tapOperButton), for: .touchDown)
         
         stackView1 = makeHorizontalStackView([button7, button8, button9, plusButton])
         stackView2 = makeHorizontalStackView([button4, button5, button6, minusButton])

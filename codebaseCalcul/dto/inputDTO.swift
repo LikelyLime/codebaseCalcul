@@ -8,9 +8,6 @@
 import Foundation
 
 struct inputData{
-    var displayNum = ""
-    var firstOper = ""
-    var secondOper = ""
+    var formula = ""
     var result = ""
-    var currentOper = OperationDTO.unknown
 }
