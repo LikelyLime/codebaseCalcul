@@ -83,7 +83,6 @@ class ViewController: UIViewController {
      */
     @objc
     private func tapNumButton(_ sender: UIButton){
-        print(label.text!)
         let tapNum = sender.title(for: .normal) ?? "No title"
         if label.text! == "0"{
             if tapNum == "0"{
