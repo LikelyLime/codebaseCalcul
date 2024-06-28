@@ -30,8 +30,8 @@ class ViewController: UIViewController {
     private var stackView2 = UIStackView()
     private var stackView3 = UIStackView()
     private var stackView4 = UIStackView()
-    var input = inputData()
-    let calSerivce = calculService()
+    var input = InputData()
+    let calController = CalController()
     
     
     
@@ -118,11 +118,11 @@ class ViewController: UIViewController {
         input.result = ""
     }
     /**
-     수식 버튼 클릭시 앞에 수식이 있는지 확인하는 메서그
+     수식 버튼 클릭시 앞에 수식이 있는지 확인하는 함수
      */
     private func chckOperButton(_ formula: String) -> Bool{
-        var formula = formula
-        var ary = formula.map{ String($0) }
+        let formula = formula
+        let ary = formula.map{ String($0) }
         return isInt(ary[ary.count - 1])
     }
     
@@ -156,7 +156,7 @@ class ViewController: UIViewController {
      */
     @objc
     private func tapEqualButton(){
-        input = calSerivce.operation(input)
+        input = calController.operation(input)
         self.label.text = input.result
     }
     

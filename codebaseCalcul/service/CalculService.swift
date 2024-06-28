@@ -7,8 +7,8 @@
 
 import Foundation
 import UIKit
-class calculService{
-    public func operation(_ input: inputData) -> inputData{
+class CalculService{
+    public func operation(_ input: InputData) -> InputData{
         var input = input
         if let expression = NSExpression(format: input.formula) as NSExpression?,
            let result = expression.expressionValue(with: nil, context: nil) as? NSNumber {

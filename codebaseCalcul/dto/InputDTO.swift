@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct inputData{
+struct InputData{
     var formula = ""
     var result = ""
 }
